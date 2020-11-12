@@ -1,34 +1,38 @@
-let orangePrice = 15.678;
-let applePrice = 123.965;
-let pearPrice = 90.2345;
+const orangePrice = 15.678;
+const applePrice = 123.965;
+const pearPrice = 90.2345;
 
-console.log(Math.max(orangePrice, applePrice, pearPrice));
-console.log(Math.min(orangePrice, applePrice, pearPrice));
+const maxPrice = Math.max(orangePrice, applePrice, pearPrice);
+console.log(maxPrice);
+const minPrice = Math.min(orangePrice, applePrice, pearPrice);
+console.log(minPrice);
 
-let sum = orangePrice + applePrice + pearPrice;
+const sum = orangePrice + applePrice + pearPrice;
 console.log(sum);
 
-let truncedSum = Math.trunc(orangePrice) + Math.trunc(applePrice) + Math.trunc(pearPrice);
-console.log(Math.floor(truncedSum));
+const flooredSum = Math.floor(sum);
+console.log(flooredSum);
 
-
-let roundedToHundreds = (Math.ceil(sum / 100)) * 100;
+const roundedToHundreds = (Math.ceil(sum / 100)) * 100;
 console.log(roundedToHundreds);
 
-let flooredSum = Math.floor(sum);
-let isEvenSum = true;
-if (flooredSum / 2 != 0) {
-    isEvenSum = false;
-}
+
+const isEvenSum = flooredSum % 2 === 0;
 console.log(isEvenSum);
 
-console.log(500 - sum);
+const moneyCount = 500;
+const change = moneyCount - sum;
+console.log(change);
 
-console.log((sum / 3).toFixed(2));
+const averagePrice = Number((sum / 3).toFixed(2));
+console.log(averagePrice);
 
-let discount = Math.random();
-let discountSum = sum - (sum * discount);
-console.log(discountSum.toFixed(2));
-console.log((sum / 2 - discountSum).toFixed(2));
+const max = 100;
+const min = 0;
+const discount = (Math.floor(Math.random() * (max - min + 1)) + min) / 100;
+const discountSum = +(sum - (sum * discount)).toFixed(2);
+const profit = +((sum / 2 - discountSum).toFixed(2));
+console.log(discountSum);
+console.log(profit);
 
-console.log(`Максимальна сума: ${Math.max(orangePrice, applePrice, pearPrice)} \n Мінімальна сума: ${Math.min(orangePrice, applePrice, pearPrice)} \n Вартість всіх товарів: ${sum} \n Сума товарів без копійок: ${Math.floor(truncedSum)} \n Сума товарів округлена до сотень: ${roundedToHundreds}\n Сума всіх товарів парне число: ${isEvenSum}\n Решта з 500 грн: ${500 - sum}\n Середнє значення цін, округлене до другого знаку після коми: ${(sum / 3).toFixed(2)}\n Сума до оплати з урахуванням знижки: ${discountSum.toFixed(2)}\n Чистий прибуток з урахуванням знижки: ${(sum / 2 - discountSum).toFixed(2)}`);
+console.log(`Максимальна сума: ${maxPrice} \n Мінімальна сума: ${minPrice} \n Вартість всіх товарів: ${sum} \n Сума товарів без копійок: ${flooredSum} \n Сума товарів округлена до сотень: ${roundedToHundreds}\n Сума всіх товарів парне число: ${isEvenSum}\n Решта з 500 грн: ${change}\n Середнє значення цін, округлене до другого знаку після коми: ${averagePrice}\n Сума до оплати з урахуванням знижки: ${discountSum}\n Чистий прибуток з урахуванням знижки: ${profit}`);
